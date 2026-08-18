@@ -1,33 +1,163 @@
-<object data="" type="">
-
-</object> 
 <!DOCTYPE html>
- <html lang="pt-br">
+<html lang="pt-br">
 
- </html>
-  <head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Document</title>
- </head> 
- <body>
-     </body> 
-     </html> 
-     <title>Blog</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <h2>Meu primeiro post</h2>
-        <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia..</p> 
-        <p>Por: Sofia Salomão</p>
-         <header>
-             <h1>Meu blog tech</h1>
-              <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-             </header>
-              <main>
-                 <h2>Meu primeiro post</h2>
-                  <p>Por: Sofia Salomão</p>
-                   <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
-                 </main>
-                  <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Tech</title>
 
-                  </style>
-                   <img src="https://i.pinimg.com/474x/ec/2a/69/ec2a6931dd88b2d4c53a47ca17cd1058.jpg" alt="">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #183C63;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 16px;
+            border-radius: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        article {
+            display: flex;
+            background-color: white;
+            color: #183C63;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .artigo-autor {
+            font-weight: bold;
+        }
+
+        button {
+            margin-right: 10px;
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Meu Blog Tech</h1>
+        <p>Vou compartilhar conhecimentos sobre tecnologia e programação.</p>
+    </header>
+
+    <main>
+
+        <article>
+
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação com um livro aberto e elementos tecnológicos.">
+
+            <div>
+
+                <h2>Meu primeiro post</h2>
+
+                <p class="artigo-autor">
+                    Por: Eduarda Stocki
+                </p>
+
+                <p>
+                    Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação,
+                    curiosidades sobre tecnologia e tudo o que estou aprendendo durante meus estudos.
+                </p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+
+            </div>
+
+        </article>
+
+        <article>
+
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação com um livro aberto e elementos tecnológicos.">
+
+            <div>
+
+                <h2>Meu segundo post</h2>
+
+                <p class="artigo-autor">
+                    Por: Eduarda Stocki
+                </p>
+
+                <p>
+                    Aprender HTML, CSS e JavaScript é um passo importante para criar sites modernos,
+                    interativos e bonitos. Quanto mais praticamos, mais evoluímos.
+                </p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+
+            </div>
+
+        </article>
+
+    </main>
+
+    <script>
+
+        const botoes = document.querySelectorAll("button");
+
+        botoes.forEach(function (botao) {
+
+            let curtiu = false;
+
+            botao.addEventListener("click", botaoClicado);
+
+            function botaoClicado() {
+
+                let texto = botao.querySelector("span");
+
+                if (curtiu === false) {
+
+                    texto.textContent++;
+                    curtiu = true;
+
+                } else {
+
+                    texto.textContent--;
+                    curtiu = false;
+
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
