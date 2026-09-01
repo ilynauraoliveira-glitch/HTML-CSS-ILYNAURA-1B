@@ -1,163 +1,211 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+:root {
+    --cor-primaria: #183C63;
+    --cor-secundaria: #3782d2;
+    --cor-fundo: #ffffff;
+    --cor-texto: #151428;
+    --cor-contraste: #f3eef7;
+    --cor-botao: #f9f9f9;
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog Tech</title>
+    --fonte-texto: 'Segoe UI', sans-serif;
+}
 
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
 
-        header {
-            background-color: #183C63;
-            color: white;
-            text-align: center;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 16px;
-            border-radius: 10px;
-        }
+/* Transição suave das cores */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-        }
 
-        article {
-            display: flex;
-            background-color: white;
-            color: #183C63;
-            padding: 16px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
+/* Configuração geral da página */
+body {
+    max-width: 100vw;
+    margin: 0;
+    font-family: var(--fonte-texto);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
 
-        img {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
-        }
 
-        .artigo-autor {
-            font-weight: bold;
-        }
+/* Cabeçalho */
+header {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+    text-align: center;
+    padding: 24px;
+}
 
-        button {
-            margin-right: 10px;
-            padding: 8px 12px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            background-color: white;
-        }
 
-        button:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
-</head>
+/* Conteúdo principal */
+main {
+    max-width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+}
 
-<body>
 
-    <header>
-        <h1>Meu Blog Tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação.</p>
-    </header>
+/* Cards dos artigos */
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
-    <main>
+    background-color: var(--cor-fundo);
 
-        <article>
+    margin: 8px;
+    gap: 16px;
+    padding: 16px;
 
-            <img src="imagem-blog.png"
-                alt="Logotipo conceitual de tecnologia e educação com um livro aberto e elementos tecnológicos.">
+    flex: 1 1 25%;
+    min-width: 250px;
 
-            <div>
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
 
-                <h2>Meu primeiro post</h2>
 
-                <p class="artigo-autor">
-                    Por: Ilynaura Budnik 
-                </p>
+/* Imagens dos posts */
+article img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
-                <p>
-                    Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação,
-                    curiosidades sobre tecnologia e tudo o que estou aprendendo durante meus estudos.
-                </p>
 
-                <button>❤️ <span>0</span></button>
-                <button>👍 <span>0</span></button>
+/* Títulos */
+article h2 {
+    color: var(--cor-primaria);
+}
 
-            </div>
 
-        </article>
+/* Autor */
+.artigo-autor {
+    font-weight: bold;
+}
 
-        <article>
 
-            <img src="imagem-blog.png"
-                alt="Logotipo conceitual de tecnologia e educação com um livro aberto e elementos tecnológicos.">
+/* Fonte */
+.artigo-fonte {
+    font-size: 14px;
+}
 
-            <div>
 
-                <h2>Meu segundo post</h2>
+/* Links */
+a {
+    color: var(--cor-secundaria);
+    font-weight: bold;
+}
 
-                <p class="artigo-autor">
-                    Por: Ilynaura Budnik
-                </p>
 
-                <p>
-                    Aprender HTML, CSS e JavaScript é um passo importante para criar sites modernos,
-                    interativos e bonitos. Quanto mais praticamos, mais evoluímos.
-                </p>
+/* Botões de interação */
+article button {
+    background-color: var(--cor-botao);
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-                <button>❤️ <span>0</span></button>
-                <button>👍 <span>0</span></button>
 
-            </div>
+/* Botão do modo escuro */
+.btn-tema-escuro {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
 
-        </article>
+    font-size: 32px;
+    padding: 12px;
 
-    </main>
+    background-color: var(--cor-primaria);
 
-    <script>
+    border-radius: 50%;
+    border: none;
 
-        const botoes = document.querySelectorAll("button");
+    cursor: pointer;
 
-        botoes.forEach(function (botao) {
+    z-index: 1000;
+}
 
-            let curtiu = false;
 
-            botao.addEventListener("click", botaoClicado);
+/* ========================= */
+/*       TEMA ESCURO         */
+/* ========================= */
 
-            function botaoClicado() {
+.tema-escuro {
+    --cor-primaria: #c9e3ff;
+    --cor-secundaria: #70b7ff;
+    --cor-fundo: #151428;
+    --cor-texto: #ffffff;
+    --cor-contraste: #f3eef7;
+    --cor-botao: #24233d;
+}
 
-                let texto = botao.querySelector("span");
 
-                if (curtiu === false) {
+/* Links no tema escuro */
+.tema-escuro a {
+    color: var(--cor-secundaria);
+}
 
-                    texto.textContent++;
-                    curtiu = true;
 
-                } else {
+/* Parágrafos no tema escuro */
+.tema-escuro p {
+    color: var(--cor-texto);
+}
 
-                    texto.textContent--;
-                    curtiu = false;
 
-                }
+/* Texto do cabeçalho no tema escuro */
+.tema-escuro header p {
+    color: var(--cor-contraste);
+}
 
-            }
 
-        });
+/* Títulos dos artigos no tema escuro */
+.tema-escuro article h2 {
+    color: var(--cor-primaria);
+}
 
-    </script>
 
-</body>
+/* Cards no tema escuro */
+.tema-escuro article {
+    background-color: var(--cor-fundo);
+}
 
-</html>
+
+/* Botões no tema escuro */
+.tema-escuro article button {
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+}
+
+
+/* Botão do tema no modo escuro */
+.tema-escuro .btn-tema-escuro {
+    background-color: var(--cor-secundaria);
+}
+
+
+/* Ajuste para telas menores */
+@media (max-width: 700px) {
+
+    article {
+        flex: 1 1 100%;
+        min-width: auto;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .btn-tema-escuro {
+        font-size: 26px;
+        padding: 10px;
+    }
+}
