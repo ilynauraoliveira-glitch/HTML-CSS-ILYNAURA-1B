@@ -1,211 +1,56 @@
-:root {
-    --cor-primaria: #183C63;
-    --cor-secundaria: #3782d2;
-    --cor-fundo: #ffffff;
-    --cor-texto: #151428;
-    --cor-contraste: #f3eef7;
-    --cor-botao: #f9f9f9;
+// ================================
+// BOTÕES DE CURTIDA
+// ================================
 
-    --fonte-texto: 'Segoe UI', sans-serif;
-}
+const botoes = document.querySelectorAll("article button");
 
+botoes.forEach(function (botao) {
 
-/* Transição suave das cores */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+    let curtiu = false;
 
+    botao.addEventListener("click", botaoClicado);
 
-/* Configuração geral da página */
-body {
-    max-width: 100vw;
-    margin: 0;
-    font-family: var(--fonte-texto);
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-}
+    function botaoClicado() {
 
+        let texto = botao.querySelector("span");
 
-/* Cabeçalho */
-header {
-    background-color: var(--cor-primaria);
-    color: #ffffff;
-    text-align: center;
-    padding: 24px;
-}
-
-
-/* Conteúdo principal */
-main {
-    max-width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-    padding: 16px;
-    box-sizing: border-box;
-}
-
-
-/* Cards dos artigos */
-article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-
-    background-color: var(--cor-fundo);
-
-    margin: 8px;
-    gap: 16px;
-    padding: 16px;
-
-    flex: 1 1 25%;
-    min-width: 250px;
-
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-}
-
-
-/* Imagens dos posts */
-article img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-/* Títulos */
-article h2 {
-    color: var(--cor-primaria);
-}
-
-
-/* Autor */
-.artigo-autor {
-    font-weight: bold;
-}
-
-
-/* Fonte */
-.artigo-fonte {
-    font-size: 14px;
-}
-
-
-/* Links */
-a {
-    color: var(--cor-secundaria);
-    font-weight: bold;
-}
-
-
-/* Botões de interação */
-article button {
-    background-color: var(--cor-botao);
-    border: 1px solid var(--cor-secundaria);
-    border-radius: 8px;
-    padding: 8px 12px;
-    margin: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-
-/* Botão do modo escuro */
-.btn-tema-escuro {
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-
-    font-size: 32px;
-    padding: 12px;
-
-    background-color: var(--cor-primaria);
-
-    border-radius: 50%;
-    border: none;
-
-    cursor: pointer;
-
-    z-index: 1000;
-}
-
-
-/* ========================= */
-/*       TEMA ESCURO         */
-/* ========================= */
-
-.tema-escuro {
-    --cor-primaria: #c9e3ff;
-    --cor-secundaria: #70b7ff;
-    --cor-fundo: #151428;
-    --cor-texto: #ffffff;
-    --cor-contraste: #f3eef7;
-    --cor-botao: #24233d;
-}
-
-
-/* Links no tema escuro */
-.tema-escuro a {
-    color: var(--cor-secundaria);
-}
-
-
-/* Parágrafos no tema escuro */
-.tema-escuro p {
-    color: var(--cor-texto);
-}
-
-
-/* Texto do cabeçalho no tema escuro */
-.tema-escuro header p {
-    color: var(--cor-contraste);
-}
-
-
-/* Títulos dos artigos no tema escuro */
-.tema-escuro article h2 {
-    color: var(--cor-primaria);
-}
-
-
-/* Cards no tema escuro */
-.tema-escuro article {
-    background-color: var(--cor-fundo);
-}
-
-
-/* Botões no tema escuro */
-.tema-escuro article button {
-    background-color: var(--cor-botao);
-    color: var(--cor-texto);
-}
-
-
-/* Botão do tema no modo escuro */
-.tema-escuro .btn-tema-escuro {
-    background-color: var(--cor-secundaria);
-}
-
-
-/* Ajuste para telas menores */
-@media (max-width: 700px) {
-
-    article {
-        flex: 1 1 100%;
-        min-width: auto;
+        if (curtiu === false) {
+            texto.textContent++;
+            curtiu = true;
+        } else {
+            texto.textContent--;
+            curtiu = false;
+        }
     }
+});
 
-    header h1 {
-        font-size: 28px;
-    }
 
-    .btn-tema-escuro {
-        font-size: 26px;
-        padding: 10px;
+// ================================
+// BOTÃO DO TEMA ESCURO
+// ================================
+
+const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+
+btnTemaEscuro.addEventListener("click", mudaTema);
+
+
+// Função para alternar entre tema claro e escuro
+function mudaTema() {
+
+    const corpoPagina = document.body;
+
+    if (corpoPagina.classList.contains("tema-escuro")) {
+
+        corpoPagina.classList.remove("tema-escuro");
+
+        btnTemaEscuro.textContent = "🌙";
+
+    } else {
+
+        corpoPagina.classList.add("tema-escuro");
+
+        btnTemaEscuro.textContent = "☀️";
     }
+}
+
 }
