@@ -1,56 +1,154 @@
-// ================================
-// BOTÕES DE CURTIDA
-// ================================
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-const botoes = document.querySelectorAll("article button");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Tech - Eduarda Stocki</title>
 
-botoes.forEach(function (botao) {
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    let curtiu = false;
+<body>
 
-    botao.addEventListener("click", botaoClicado);
+    <header>
+        <h1>Meu Blog Tech</h1>
+        <p>Curiosidades e novidades sobre tecnologia</p>
+        <p>Por: Eduarda Stocki</p>
+    </header>
 
-    function botaoClicado() {
+    <main>
 
-        let texto = botao.querySelector("span");
+        <article>
+            <img src="imagem-blog.png" alt="Imagem representando tecnologia">
 
-        if (curtiu === false) {
-            texto.textContent++;
-            curtiu = true;
-        } else {
-            texto.textContent--;
-            curtiu = false;
-        }
-    }
-});
+            <div>
+                <h2>O primeiro mouse de computador</h2>
+
+                <p class="artigo-autor">
+                    Por: Eduarda Stocki
+                </p>
+
+                <p>
+                    O primeiro mouse de computador foi criado na década de 1960
+                    por Douglas Engelbart. O dispositivo era feito de madeira e
+                    possuía duas rodas que permitiam movimentar o cursor na tela.
+                </p>
+
+                <p class="artigo-fonte">
+                    Fonte:
+                    <a href="https://www.computerhistory.org/"
+                        target="_blank">
+                        Computer History Museum
+                    </a>
+                </p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
 
 
-// ================================
-// BOTÃO DO TEMA ESCURO
-// ================================
+        <article>
+            <img src="imagem-blog.png" alt="Imagem representando Bluetooth">
 
-const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+            <div>
+                <h2>De onde vem o nome Bluetooth?</h2>
 
-btnTemaEscuro.addEventListener("click", mudaTema);
+                <p class="artigo-autor">
+                    Por: Eduarda Stocki
+                </p>
+
+                <p>
+                    O nome Bluetooth foi inspirado no rei dinamarquês Harald
+                    Bluetooth, conhecido por unir diferentes povos. A tecnologia
+                    recebeu esse nome porque tinha como objetivo conectar
+                    diferentes dispositivos.
+                </p>
+
+                <p class="artigo-fonte">
+                    Fonte:
+                    <a href="https://www.bluetooth.com/"
+                        target="_blank">
+                        Bluetooth
+                    </a>
+                </p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
 
 
-// Função para alternar entre tema claro e escuro
-function mudaTema() {
+        <article>
+            <img src="imagem-blog.png" alt="Imagem representando inteligência artificial">
 
-    const corpoPagina = document.body;
+            <div>
+                <h2>O que é Inteligência Artificial?</h2>
 
-    if (corpoPagina.classList.contains("tema-escuro")) {
+                <p class="artigo-autor">
+                    Por: Eduarda Stocki
+                </p>
 
-        corpoPagina.classList.remove("tema-escuro");
+                <p>
+                    A Inteligência Artificial é uma área da tecnologia que
+                    desenvolve sistemas capazes de realizar tarefas que
+                    normalmente exigiriam inteligência humana, como reconhecer
+                    imagens, compreender textos e aprender com informações.
+                </p>
 
-        btnTemaEscuro.textContent = "🌙";
+                <p class="artigo-fonte">
+                    Fonte:
+                    <a href="https://www.ibm.com/topics/artificial-intelligence"
+                        target="_blank">
+                        IBM
+                    </a>
+                </p>
 
-    } else {
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
 
-        corpoPagina.classList.add("tema-escuro");
 
-        btnTemaEscuro.textContent = "☀️";
-    }
-}
+        <article>
+            <img src="imagem-blog.png" alt="Imagem representando a internet">
 
-}
+            <div>
+                <h2>Como surgiu a Internet?</h2>
+
+                <p class="artigo-autor">
+                    Por: Eduarda Stocki
+                </p>
+
+                <p>
+                    A Internet surgiu a partir de projetos de comunicação entre
+                    computadores. Um dos principais projetos foi a ARPANET,
+                    desenvolvida nos Estados Unidos no final da década de 1960.
+                </p>
+
+                <p class="artigo-fonte">
+                    Fonte:
+                    <a href="https://www.internetsociety.org/internet/history-internet/"
+                        target="_blank">
+                        Internet Society
+                    </a>
+                </p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+
+
+        <button class="btn-tema-escuro" aria-label="Alternar tema">
+            🌙
+        </button>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
